@@ -3,7 +3,7 @@
     <div v-if="sneakersStore.isLoading" class="bg-white">
       <sceleton />
     </div>
-    <div v-else class="flex justify-between flex-wrap bg-white pl-16 pr-16 rounded-b-lg">
+    <div v-else class="flex justify-between flex-wrap bg-white pl-16 pr-16 ">
       <div v-for="sneaker in sneakersStore.sneakers"
         class="max-w-52 my-6 ml-8 mr-8 border p-10 rounded-2xl shadow-lg relative" :key="sneaker.id">
         <div class="flex justify-center mb-5 ">

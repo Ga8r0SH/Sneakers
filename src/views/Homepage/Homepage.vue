@@ -5,6 +5,9 @@
             <Slider />
             <Search />
             <CrossItem />
+            <SliderComents/>
+            <Map/>
+            <Feedback/>
             <Footer />
         </div>
     </div>
@@ -16,6 +19,9 @@ import Slider from '@/components/Slider/Slider.vue';
 import Search from '@/components/Search/Search.vue';
 import CrossItem from '@/components/CrossItem/CrossItem.vue';
 import Footer from '@/components/Footer/Footer.vue';
+import SliderComents from '@/components/SliderComents/Slider.vue';
+import Map from '@/components/map/Map.vue';
+import Feedback from '@/components/FormFeedback/FormFeedback.vue'
 export default {
     data() {
         return {
@@ -27,7 +33,11 @@ export default {
         Slider,
         Search,
         CrossItem,
-        Footer
+        SliderComents,
+        Footer,
+        Map,
+        Feedback
+
     }
 }
 </script>
