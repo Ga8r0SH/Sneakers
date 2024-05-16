@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
@@ -34,16 +35,14 @@ export default {
   },
   methods: {
     submitForm() {
-      // Здесь можно добавить логику отправки данных формы на сервер или куда-либо еще
-      console.log("Отправка данных формы:", this.formData);
-
-      this.formData = {
-        name: "",
-        email: "",
-        message: ""
-      };
+          this.formData = {
+            name: "",
+            email: "",
+            message: ""
+          };
+        } 
     }
-  }
+  
 };
 </script>
 

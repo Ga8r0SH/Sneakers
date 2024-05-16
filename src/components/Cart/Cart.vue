@@ -1,6 +1,6 @@
 <template>
     <div v-if="cartProduct.length == 0">
-        <cartEmpry />
+        <cartEmpty />
     </div>
     <div v-else class="px-16 bg-white">
         <div class="py-10 flex">
@@ -12,15 +12,15 @@
                     </svg>
                 </div>
             </button>
-            <h1 class="upercase font-extrabold text-[32px] pl-5">Мои покупки</h1>
+            <h1 class="uppercase font-extrabold text-[32px] pl-5">Мои покупки</h1>
         </div>
         <div>
             <h1 class="font-bold text-[20px] mb-8">Общая сумма заказов: {{ totalPrice }} $ </h1>
         </div>
         <div class="">
             <div class="flex justify-center flex-wrap bg-white pl-16 pr-16 rounded-b-lg ">
-                <div v-for="sneaker in cartProduct "
-                    class="max-w-52 my-6 ml-8 mr-8 border p-10 rounded-2xl shadow-lg relative" :key="sneaker.id">
+                <div v-for="sneaker in cartProduct " :key="sneaker.id"
+                    class="max-w-52 my-6 ml-8 mr-8 border p-10 rounded-2xl shadow-lg relative">
                     <div class="flex justify-center mb-5 ">
                         <img :src="image" alt="">
                     </div>
@@ -32,6 +32,11 @@
                             <h1 class="text-gray-400 text-center pr-8">Цена:</h1>
                             <p class="text-[14px] font-bold flex items-center">{{ sneaker.price }}$</p>
                         </div>
+                    </div>
+                    <div @click="removeFromCart(sneaker)" class="flex justify-center mt-4 absolute top-0 right-4 bg-red-700 rounded-xl p-[2px] cursor-pointer ">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 5L15 15M15 5L5 15" stroke="#000" stroke-width="2" />
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -45,20 +50,22 @@ import image from '../../assets/sneakers.png'
 import { useRouter } from 'vue-router';
 import { useSneakers } from '@/stores/Sneakers';
 import Footer from '../Footer/Footer.vue'
-import cartEmpry from './CartNotFaund.vue'
-
+import CartEmpty from './CartNotFaund.vue'
 
 const router = useRouter();
-
 const sneakersStore = useSneakers();
-
 const totalPrice = sneakersStore.calculateTotalPurchasePrice()
-
 const cartProduct = sneakersStore.purchases
 
 const goBack = () => {
     router.go(-1);
 };
 
-
+const removeFromCart = (sneaker) => {
+    const index = cartProduct.findIndex(item => item.id === sneaker.id);
+    if (index !== -1) {
+        sneakersStore.purchases.splice(index, 1);
+        alert('Товар удален из корзины');
+    }
+};
 </script>
