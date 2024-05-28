@@ -94,16 +94,16 @@ const sneakersStore = useSneakers();
 
 const favoriteProduct = sneakersStore.favorite;
 
-const addProduct = (sneaker) => {
-    const isAlreadyInCart = sneakersStore.purchases.some(item => item.id === sneaker.id); // Проверяем, есть ли товар уже в корзине по его уникальному идентификатору
+const addProductToCart = (sneaker, imageUrl) => {
+    const isAlreadyInCart = sneakersStore.purchases.some(item => item.id === sneaker.id);
 
     if (isAlreadyInCart) {
         alert('Этот товар уже есть в корзине');
     } else {
-        sneakersStore.purchases.push(sneaker);
+        sneakersStore.purchases.push({ ...sneaker, imageUrl });
         alert('Товар добавлен в корзину');
     }
-}
+};
 
 const removeFromFavorites = (sneaker) => {
     const index = favoriteProduct.findIndex(item => item.id === sneaker.id);
