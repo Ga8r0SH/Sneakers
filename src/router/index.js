@@ -4,6 +4,8 @@ import Favoritepage from '../views/Favoritepage/Favoritepage'
 import CartPage from '../views/Cartpage/Cartpage.vue'
 import Profile from '@/components/Profile/Profile.vue';
 import aboutUs from '@/components/aboutUs/aboutUs.vue';
+import auth from '@/components/formAuth/auth.vue';
+import pagePay from '@/components/Order/pagePay.vue'
 
 
 const routes = [
@@ -31,6 +33,16 @@ const routes = [
     path:'/aboutUs',
     name:'aboutUs',
     component:aboutUs
+  },
+  {
+    path:'/auth',
+    name:'auth',
+    component:auth
+  },
+  {
+    path:'/Pay',
+    name: 'Pay',
+    component:pagePay
   }
  
 ]

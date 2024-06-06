@@ -12,10 +12,10 @@ export const useSneakers = defineStore('Sneakers', {
         'https://sportlandia.md/image/cache/webp/catalog/products/00/AH8050-100/1-700x700.webp',
         'https://sportlandia.md/image/cache/webp/catalog/products/01/FN7811-001/1-700x700.webp',
         'https://sportlandia.md/image/cache/webp/catalog/products/00/DJ5172-100/1-700x700.webp',
-        'https://soccer-store.ru/images/products/10878/large/1670493576.jpg',
+        'https://static.street-beat.ru/upload/resize_cache/iblock/ddf/500_500_1/w7b5puybs9gydp36obzd4t2pgz2r985i.jpg',
         'https://images.puma.net/images/371149/25/sv01/fnd/UKR/',
-        'https://images.prom.ua/4676367376_w640_h640_muzhskie-krossovki-vesna-osen.jpg',
-        'https://i.simpalsmedia.com/marketplace/products/original/880de16500fd2c4a9a2e6f1da57eee44.jpg',
+        'https://i.ebayimg.com/images/g/OS4AAOSwTJFjoWP2/s-l640.png',
+        'https://tennis-mag.ru/images//media/item_images/%D0%A2%D0%B5%D0%BD%D0%BD%D0%B8%D1%81%D0%BD%D1%8B%D0%B5_%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8_Wilson_Rush_Pro_3.5_Paris_Black_Orange_.original.jpg',
         'https://sportlandia.md/image/cache/webp/catalog/products/00/DC0957-100/1-700x700.webp',
         'https://sportlandia.md/image/cache/webp/catalog/products/09/314192-009/1-700x700.webp',
       ]
@@ -38,12 +38,6 @@ export const useSneakers = defineStore('Sneakers', {
       return this.purchases.reduce((total, item) => total + item.price, 0);
     }
   },
-  async fetchProfile(){
-    try{
-      const response = await axios.get('')
-    }catch(error){
-      console.log(error)
-    }
-  }
+  
   
 });

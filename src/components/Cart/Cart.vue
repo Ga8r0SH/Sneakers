@@ -3,7 +3,7 @@
       <CartEmpty />
     </div>
     <div v-else class="px-16 bg-white relative">
-      <button class=" absolute  top-10 right-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="checkout">Оформить заказ</button>
+      <button  v-if="authStoreCart.status" class=" absolute  top-10 right-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" @click="redirect">Оформить заказ</button>
       <div class="py-10 flex">
         <button @click="goBack">
           <div class="px-3 py-2 bg-white rounded-xl border">
@@ -49,11 +49,19 @@
   import { useSneakers } from '@/stores/Sneakers';
   import Footer from '../Footer/Footer.vue';
   import CartEmpty from './CartNotFaund.vue';
+import { authStore } from '@/stores/authStore';
   
   const router = useRouter();
   const sneakersStore = useSneakers();
   const totalPrice = sneakersStore.calculateTotalPurchasePrice();
   const cartProduct = sneakersStore.purchases;
+
+  const authStoreCart = authStore();
+
+
+  const redirect = ()=>{
+    router.push('/pay')
+  }
   
   const goBack = () => {
     router.go(-1);

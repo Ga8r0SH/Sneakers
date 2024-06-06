@@ -94,7 +94,7 @@ const sneakersStore = useSneakers();
 
 const favoriteProduct = sneakersStore.favorite;
 
-const addProductToCart = (sneaker, imageUrl) => {
+const addProduct = (sneaker, imageUrl) => {
     const isAlreadyInCart = sneakersStore.purchases.some(item => item.id === sneaker.id);
 
     if (isAlreadyInCart) {
